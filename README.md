@@ -1,5 +1,5 @@
 # StrawBotSnippets
-The purpose of this repository is to show small snippets of my "StrawBot" Discord bot so people can see what it is all about, enjoy!
+The purpose of this repository is to show small snippets of my "StrawBot" Discord bot so people can see what it's all about, enjoy!
 
 What does StrawBot do?
 
