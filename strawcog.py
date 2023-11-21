@@ -132,10 +132,8 @@ class StrawCog(commands.Cog):
         
         # GETTING PRIMARY DESCRIPTION OF ARTICLE
             paragraphs = soup.find_all('p')
-            first_paragraph = paragraphs[3]
-            sec_paragraph = paragraphs[4]
-            first_paragraph = str(first_paragraph)
-            sec_paragraph = str(sec_paragraph)
+            first_paragraph = str(paragraphs[3])
+            sec_paragraph = str(paragraphs[4])
             summary = f"{first_paragraph}\n{sec_paragraph}"
             CLEANR = re.compile('<.*?>') 
             summary = re.sub(CLEANR,"",summary)
