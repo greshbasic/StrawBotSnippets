@@ -35,6 +35,7 @@ class ReferenceCog(commands.Cog):
         
     @commands.command()
     async def ai(self, ctx, *query):
+          """ -Returns ChatGPT response to given prompt"""
         for i in range(len(query)):
             if i == len(query) - 1:
                 string += f"{query[i]}"
