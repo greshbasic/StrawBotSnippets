@@ -119,6 +119,7 @@ class StrawCog(commands.Cog):
             
     @commands.command()
     async def ch_sum(self, ctx, chapter_number):
+          """ -Returns a One Piece chapter's summary"""
         if not chapter_number or not chapter_number.isnumeric():
             return
         
