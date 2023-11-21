@@ -1,3 +1,8 @@
+# hey! this file is used to set up web scrapping for StrawBot's group of commands. In particular op_wiki and ch_sum.
+# op_wiki will grab information and an image about a given search term (if found) from the One Piece Fandom Wiki
+# ch_sum will grab the short summary of a chapter (if found) from the One Piece Fandom Wiki
+
+
 import discord
 from discord.ext import commands
 from httpx import AsyncClient
