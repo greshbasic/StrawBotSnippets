@@ -12,3 +12,6 @@ Who is involved in the making of StrawBot?
 Are the snippets 1:1 with StrawBot's code?
 
 - Nope. All of the provided snippets have missing context, contain editted versions of commands, or both.
+
+How many people use StrawBot?
+- Good question. It is hard to gauge an exact amount, but StrawBot itself interacts with over 100,000 people on an average day, be that adding a reaction to someone's message, replying to their command(s), or even banning them. 
