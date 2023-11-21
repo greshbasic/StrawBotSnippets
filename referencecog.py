@@ -1,3 +1,6 @@
+# hey! this file is used to set up web scrapping for StrawBot's standard group of reference commands. In particular wiki and ai.
+# wiki will grab and return a Wikipedia Article for the search term (if found) 
+# ai will submit a user's provided prompt to ChatGPT and return ChatGPT's response
 
 class ReferenceCog(commands.Cog):
     def __init__(self):
