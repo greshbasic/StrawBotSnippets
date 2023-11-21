@@ -2,15 +2,6 @@
 # op_wiki will grab information and an image about a given search term (if found) from the One Piece Fandom Wiki
 # ch_sum will grab the short summary of a chapter (if found) from the One Piece Fandom Wiki
 
-
-import discord
-from discord.ext import commands
-from httpx import AsyncClient
-import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-import re
-
 class StrawCog(commands.Cog):
     def __init__(self):
         self.httpx_client = AsyncClient()
