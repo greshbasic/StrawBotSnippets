@@ -3,7 +3,7 @@ The purpose of this repository is to show small snippets of my "StrawBot" Discor
 
 What does StrawBot do?
 
-- Thanks for asking. StrawBot does A LOT. But in short, StrawBot has commands for moderation, general utility, its own economy game, web scrapping, ChatGPT, and a bunch of other miscellaneous stuff!
+- Thanks for asking, StrawBot does A LOT. But in short, StrawBot has commands for moderation, general utility, its own economy game, web scrapping, ChatGPT, and a bunch of other miscellaneous stuff!
 
 Who is involved in the making of StrawBot?
 
