@@ -65,9 +65,7 @@ class ReferenceCog(commands.Cog):
         await ctx.message.add_reaction("✅")
         await ctx.reply(embed=embed)
             
-        
-
-@commands.command()
+    @commands.command()
     async def ai_image(self, ctx, *query):
         """ -Returns an AI image"""
         string = ""
