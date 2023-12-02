@@ -24,11 +24,8 @@ class ReferenceCog(commands.Cog):
    @staticmethod
     def add_to_history(role, content):
 
-        if role not in ["user", "assistant"]:
-            raise ValueError(f"Invalid role: {role}. Role must be 'user' or 'assistant'.")
-
         if not content or not isinstance(content, str):
-            raise ValueError("Invalid content. Content must be a non-empty string.")
+            return "Invalid content. Content must be a non-empty string."
 
         conversation_history.append({"role": role, "content": content})
         
