@@ -21,17 +21,29 @@ class ReferenceCog(commands.Cog):
         else:
             await ctx.reply(f"`No Wikipedia article was found for: {joined_search_term}`")
     
+   @staticmethod
+    def add_to_history(role, content):
+
+        if role not in ["user", "assistant"]:
+            raise ValueError(f"Invalid role: {role}. Role must be 'user' or 'assistant'.")
+
+        if not content or not isinstance(content, str):
+            raise ValueError("Invalid content. Content must be a non-empty string.")
+
+        conversation_history.append({"role": role, "content": content})
+        
     @staticmethod
     def chat_gpt(message):
-        messages = [ {"role": "system", "content":
-                    "You are a Discord bot that acts as a cheeky and dry humored, but intelligent assistant named StrawBot that responds with concise answers."} ] 
-        while True: 
-            if message: 
-                messages.append({"role": "user", "content": message},) 
-                chat = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages) 
-            reply = chat.choices[0].message.content 
-            messages.append({"role": "assistant", "content": reply})
-            return reply
+        ReferenceCog.add_to_history("user", message)
+        assistant = openai.ChatCompletion.create(
+            model="gpt-4-1106-preview",
+            messages=conversation_history
+        )
+
+        ReferenceCog.add_to_history("assistant", assistant['choices'][0]['message']['content'])
+        response_content = assistant['choices'][0]['message']['content']
+
+        return response_content
         
     @commands.command()
     async def ai(self, ctx, *query):
