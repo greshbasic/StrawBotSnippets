@@ -61,7 +61,37 @@ class ReferenceCog(commands.Cog):
             await ctx.message.add_reaction("❌")
             reply = e
         
-        embed=discord.Embed(title="ScaryBot AI", description=reply, color=0x8717d7)
+        embed=discord.Embed(title="StrawBot AI", description=reply, color=0x8717d7)
+        await ctx.message.add_reaction("✅")
         await ctx.reply(embed=embed)
             
-        await ctx.message.add_reaction("✅")
+        
+
+@commands.command()
+    async def ai_image(self, ctx, *query):
+        """ -Returns an AI image"""
+        string = ""
+        for i in range(len(query)):
+            if i == len(query) - 1:
+                string += f"{query[i]}"
+            else:
+                string += f"{query[i]} "
+        try:
+            await ctx.message.add_reaction("<a:loading:1159345309172912178>")
+
+            response = openai.Image.create(
+                n=1,
+                size="256x256",
+                prompt=string
+            )
+
+            image_url = response['data'][0]['url']
+
+            embed = discord.Embed(title="StrawBot AI Image", description=f"Generated image based on query: {string}", color=0x8717d7)
+            embed.set_image(url=image_url)
+            await ctx.message.add_reaction("✅")
+            await ctx.reply(embed=embed)
+            
+        except Exception as e:
+            await ctx.message.add_reaction("❌")
+            reply = e        
