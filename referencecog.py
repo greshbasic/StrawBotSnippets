@@ -81,12 +81,11 @@ class ReferenceCog(commands.Cog):
             )
 
             image_url = response['data'][0]['url']
-
-            embed = discord.Embed(title="StrawBot AI Image", description=f"Generated image based on query: {string}", color=0x8717d7)
-            embed.set_image(url=image_url)
-            await ctx.message.add_reaction("✅")
-            await ctx.reply(embed=embed)
-            
         except Exception as e:
             await ctx.message.add_reaction("❌")
-            reply = e        
+    
+        embed = discord.Embed(title="StrawBot AI Image", description=f"Generated image based on query: {string}", color=0x8717d7)
+        embed.set_image(url=image_url)
+        await ctx.message.add_reaction("✅")
+        await ctx.reply(embed=embed)
+     
