@@ -81,6 +81,7 @@ class ReferenceCog(commands.Cog):
             )
 
             image_url = response['data'][0]['url']
+            
         except Exception as e:
             await ctx.message.add_reaction("❌")
     
