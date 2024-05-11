@@ -145,7 +145,7 @@ class StrawCog(commands.Cog):
             for data in soup(['style', 'script']):
                 data.decompose()
         
-            # GETTING PRIMARY DESCRIPTION OF ARTICLE
+            # getting primary description of article
             paragraphs = soup.find_all('p')
             first_paragraph = paragraphs[3]
             sec_paragraph = paragraphs[4]
