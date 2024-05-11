@@ -64,7 +64,9 @@ class ReferenceCog(commands.Cog):
             
     @commands.command()
     async def ai_image(self, ctx, *query):
-        """ -Returns an AI image"""
+        """ -StrawBot returns an AI image"""
+        author = ctx.author[:-2]
+        init_string = ""
         string = ""
         for i in range(len(query)):
             if i == len(query) - 1:
@@ -74,19 +76,22 @@ class ReferenceCog(commands.Cog):
         try:
             await ctx.message.add_reaction("<a:loading:1159345309172912178>")
 
-            response = openai.Image.create(
+            response = client.images.generate(
+                model="dall-e-3",
+                prompt= init_string + string,
+                size="1024x1024",
+                quality="standard",
                 n=1,
-                size="256x256",
-                prompt=string
             )
 
-            image_url = response['data'][0]['url']
+            image_url = response.data[0].url
+
+            embed = discord.Embed(title="StrawBot AI Image", description=f"Generated image based on prompt: {string}", color=0x8717d7)
+            embed.set_image(url=image_url)
+            
+            await ctx.message.add_reaction("✅")
+            await ctx.reply(embed=embed)
             
         except Exception as e:
             await ctx.message.add_reaction("❌")
-    
-        embed = discord.Embed(title="StrawBot AI Image", description=f"Generated image based on query: {string}", color=0x8717d7)
-        embed.set_image(url=image_url)
-        await ctx.message.add_reaction("✅")
-        await ctx.reply(embed=embed)
-     
+            print(e)
