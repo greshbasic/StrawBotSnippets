@@ -88,7 +88,7 @@ class StrawCog(commands.Cog):
                         age = "Over 1000"
                         break
                     if "(a" in age:
-                        # characters that remain alive after pre-timeskip have their age
+                        # characters that lived through pre-timeskip have their age
                         # formatted as: (AGE-2) (pre-timeskip) AGE (after timeskip)[Citation Number]
                         if age[i:i+2] == "(a":
                             age = age[i-3:i]
