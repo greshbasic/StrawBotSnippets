@@ -16,6 +16,7 @@ class ReferenceCog(commands.Cog):
         quoted_search_term = urllib.parse.quote(joined_search_term)
         search_result = await self.httpx_client.get(f'https://en.wikipedia.org/w/api.php?action=opensearch&search={quoted_search_term}&limit=1&namespace=0&format=json')
         results_list = json.loads(search_result.text)
+        
         if len(results_list[3]) > 0:
             await ctx.reply(f"{results_list[3][0]}")
         else:
