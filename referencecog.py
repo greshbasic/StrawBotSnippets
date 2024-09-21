@@ -12,6 +12,7 @@ class ReferenceCog(commands.Cog):
         if not search_term:
             await ctx.reply("Please input a search term")
             return
+
         joined_search_term = " ".join(search_term)
         quoted_search_term = urllib.parse.quote(joined_search_term)
         search_result = await self.httpx_client.get(f'https://en.wikipedia.org/w/api.php?action=opensearch&search={quoted_search_term}&limit=1&namespace=0&format=json')
@@ -69,6 +70,7 @@ class ReferenceCog(commands.Cog):
         author = ctx.author[:-2]
         init_string = ""
         string = ""
+      
         for i in range(len(query)):
             if i == len(query) - 1:
                 string += f"{query[i]}"
