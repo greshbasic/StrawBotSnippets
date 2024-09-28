@@ -78,6 +78,7 @@ class StrawCog(commands.Cog):
             # checking for age element if the character is dead
             age2_element = soup.find('div', attrs={'class': 'pi-item', 'data-source': 'age2'})
             age = None # way to determine if article isn't about a living thing
+
             if age_element and not age2_element:
                 age = age_element.text.strip()
                 age = age[5:]
